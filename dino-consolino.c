@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <wchar.h>
 
+
 typedef struct TerminalSize {
 	int columns;
 	int rows;
