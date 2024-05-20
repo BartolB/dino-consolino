@@ -39,6 +39,7 @@ int main()
 			dino_jump = 1;
 		}
 
+
 		drawBuffer(mainBuffer, &terminalSize);
 		clearBuffer(mainBuffer, &terminalSize);
 		drawGround(mainBuffer, &terminalSize);
