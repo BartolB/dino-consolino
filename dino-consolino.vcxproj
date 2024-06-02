@@ -129,6 +129,8 @@
   <ItemGroup>
     <ClCompile Include="dino-consolino.c" />
 	<ClCompile Include="drawing.c" />
+	<ClCompile Include="odabir.c" />
+	<ClCompile Include="gamefunctions.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
