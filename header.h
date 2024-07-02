@@ -12,20 +12,20 @@ typedef struct member
 	char ime[20];
 } MEMBER;
 
-static int PlayerCount = 0;
+extern int PlayerCount;
 
 int MainGame();
-void odabir(int* n, FILE* fp);
+int odabir(FILE** fp);
 TERMINALSIZE getTerminalSize();
-void drawBuffer(char*, TERMINALSIZE*);
-void clearBuffer(char*, TERMINALSIZE*);
-void putCharacter(char*, TERMINALSIZE*, int, int, char);
-void drawGround(char*, TERMINALSIZE*);
-void drawCactus(char*, TERMINALSIZE*, int);
-int drawDinoAndCheck(char*, TERMINALSIZE*, int, int);
-void unosKorisnika(FILE*);
+void drawBuffer(wchar_t*, TERMINALSIZE*);
+void clearBuffer(wchar_t*, TERMINALSIZE*);
+void putCharacter(wchar_t*, TERMINALSIZE*, int, int, wchar_t);
+void drawGround(wchar_t*, TERMINALSIZE*);
+void drawCactus(wchar_t*, TERMINALSIZE*, int);
+int drawDinoAndCheck(wchar_t*, TERMINALSIZE*, int, int);
+void LoadingGame(FILE*);
 void* loadingplayers(FILE*);
-void ispisivanjekorisnika(MEMBER*);
-int izlazizprograma(MEMBER*);
-void* pronalazakKorisnika(MEMBER*, char*);
-void brisanjeDatoteke(FILE*);
+void PrintingPlayers(MEMBER*);
+int ExitProgram(MEMBER*);
+void* FindPlayer(MEMBER*, char*);
+void DeleteDocument(FILE*);
