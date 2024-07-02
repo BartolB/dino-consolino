@@ -67,7 +67,6 @@ void LoadingGame(FILE* fp)
     wprintf(L"Broj korisnika: %d\n", PlayerCount);
     MEMBER temp = { 0 };
     wprintf(L"Unesite ime korisnika! \n");
-    getchar();
     scanf("%19[^\n]", temp.ime);
     getchar();
     wprintf(L"\n");
