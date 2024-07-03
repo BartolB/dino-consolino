@@ -23,7 +23,7 @@ void putCharacter(wchar_t*, TERMINALSIZE*, int, int, wchar_t);
 void drawGround(wchar_t*, TERMINALSIZE*);
 void drawCactus(wchar_t*, TERMINALSIZE*, int);
 int drawDinoAndCheck(wchar_t*, TERMINALSIZE*, int, int);
-void LoadingGame(FILE*);
+void LoadingGame(FILE*, MEMBER*);
 void* loadingplayers(FILE*);
 void PrintingPlayers(MEMBER*);
 int ExitProgram(MEMBER*);

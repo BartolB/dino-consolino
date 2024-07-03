@@ -29,7 +29,7 @@ int odabir(FILE** fp)
     switch (n)
     {
     case 1:
-        LoadingGame(*fp);
+        LoadingGame(*fp,PlayerArray);
         break;
     case 2:
         if (PlayerArray != NULL)
@@ -40,9 +40,8 @@ int odabir(FILE** fp)
 
     case 3:
         wprintf(L"Unesite ime korisnika!\n");
-        getchar();
         scanf("%19[^\n]", findname);
-
+        getchar();
         FindPlayer(PlayerArray, findname);
         break;
 
@@ -60,7 +59,7 @@ int odabir(FILE** fp)
     return n;
 }
 
-void LoadingGame(FILE* fp)
+void LoadingGame(FILE* fp, MEMBER* playerarray)
 {
     rewind(fp);
     fread(&PlayerCount, sizeof(int), 1, fp);
@@ -71,6 +70,16 @@ void LoadingGame(FILE* fp)
     getchar();
     wprintf(L"\n");
     temp.score  = MainGame();
+    for (int i = 0; i < PlayerCount; i++)
+    {
+        if (!strcmp(temp.ime, (playerarray + i)->ime))
+        {
+            fseek(fp, sizeof(int) + sizeof(MEMBER) * i, SEEK_SET);
+            fwrite(&temp, sizeof(MEMBER), 1, fp);
+            rewind(fp);
+            return;
+        }
+    }
     fseek(fp, sizeof(int) + sizeof(MEMBER) * PlayerCount, SEEK_SET);
     fwrite(&temp, sizeof(MEMBER), 1, fp);
     rewind(fp);
